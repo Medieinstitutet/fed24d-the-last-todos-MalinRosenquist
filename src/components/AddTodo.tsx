@@ -1,7 +1,13 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { Todo } from "../models/Todo";
 
-export const AddTodo = () => {
+type AddTodoProps = {
+  addTodo: (t: Todo) => void;
+};
+
+// Renders a form to create a new todo. Calls the
+// parent-provided addTodo function med submiting the form.
+export const AddTodo = ({ addTodo }: AddTodoProps) => {
   // Creates a new Todo object with default empty values
   const [todo, setTodo] = useState<Todo>(new Todo("", "", false));
 
@@ -22,6 +28,7 @@ export const AddTodo = () => {
   // Handles form submission, Currently prevents default form submit behavior
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    addTodo(todo);
   };
 
   console.log(todo);

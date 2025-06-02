@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Todo } from "../models/Todo";
+import { AddTodo } from "./AddTodo";
 
 export const Todos = () => {
   const [todos, setTodos] = useState<Todo[]>([
@@ -9,9 +10,15 @@ export const Todos = () => {
     new Todo("Gödsla grönsakslandet", "Använd kompostjord och kogödsel", false),
     new Todo("Beskär äppelträdet", "Ta bort döda grenar och forma kronan", true),
   ]);
+
+  const addTodo = (t: Todo) => {
+    setTodos([...todos, t]);
+  };
+
   console.log(todos);
   return (
     <>
+      <AddTodo addTodo={addTodo} />
       <p>{JSON.stringify(todos)}</p>
     </>
   );
