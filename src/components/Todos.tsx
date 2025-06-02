@@ -1,25 +1,23 @@
-import { useState } from "react";
-import { Todo } from "../models/Todo";
-import { AddTodo } from "./AddTodo";
+//---------CHILD----------//
+// Displaying all todos
 
-export const Todos = () => {
-  const [todos, setTodos] = useState<Todo[]>([
-    new Todo("Plantera tomater", "Sätt tomatplantor i växthuset", false),
-    new Todo("Vattna blommor", "Vattna blomrabatten på framsidan", true),
-    new Todo("Rensa ogräs", "Rensa ogräs mellan odlingslådorna", false),
-    new Todo("Gödsla grönsakslandet", "Använd kompostjord och kogödsel", false),
-    new Todo("Beskär äppelträdet", "Ta bort döda grenar och forma kronan", true),
-  ]);
+import type { Todo } from "../models/Todo";
+import { TodoView } from "./TodoView";
 
-  const addTodo = (t: Todo) => {
-    setTodos([...todos, t]);
-  };
+type TodosProps = {
+  todos: Todo[];
+};
 
-  console.log(todos);
+export const Todos = ({ todos }: TodosProps) => {
   return (
     <>
-      <AddTodo addTodo={addTodo} />
-      <p>{JSON.stringify(todos)}</p>
+      <section>
+        <ul>
+          {todos.map((todo) => (
+            <TodoView key={todo.id} todo={todo} />
+          ))}
+        </ul>
+      </section>
     </>
   );
 };
