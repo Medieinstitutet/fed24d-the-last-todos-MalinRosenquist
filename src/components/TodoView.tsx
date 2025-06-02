@@ -6,9 +6,10 @@ import type { Todo } from "../models/Todo";
 type TodoViewProps = {
   todo: Todo;
   toggleCompleted: (id: number) => void;
+  removeTodo: (id: number) => void;
 };
 
-export const TodoView = ({ todo, toggleCompleted }: TodoViewProps) => {
+export const TodoView = ({ todo, toggleCompleted, removeTodo }: TodoViewProps) => {
   return (
     <>
       <li key={todo.id}>
@@ -18,7 +19,7 @@ export const TodoView = ({ todo, toggleCompleted }: TodoViewProps) => {
           <p>{todo.completed ? "Completed" : "Not completed"}</p>
           <div>
             <button onClick={() => toggleCompleted(todo.id)}>{todo.completed ? "Undo" : "Done"}</button>
-            <button>Delete</button>
+            <button onClick={() => removeTodo(todo.id)}>Delete</button>
           </div>
         </div>
       </li>

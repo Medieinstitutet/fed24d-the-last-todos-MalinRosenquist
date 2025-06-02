@@ -23,11 +23,15 @@ export const TodoApp = () => {
     setTodos(todos.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t)));
   };
 
+  const removeTodo = (id: number) => {
+    setTodos(todos.filter((t) => t.id !== id));
+  };
+
   console.log(todos);
   return (
     <>
       <AddTodo addTodo={addTodo} />
-      <Todos todos={todos} toggleCompleted={toggleCompleted} />
+      <Todos todos={todos} toggleCompleted={toggleCompleted} removeTodo={removeTodo} />
     </>
   );
 };

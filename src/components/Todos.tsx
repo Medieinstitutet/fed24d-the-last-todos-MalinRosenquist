@@ -7,15 +7,16 @@ import { TodoView } from "./TodoView";
 type TodosProps = {
   todos: Todo[];
   toggleCompleted: (id: number) => void;
+  removeTodo: (id: number) => void;
 };
 
-export const Todos = ({ todos, toggleCompleted }: TodosProps) => {
+export const Todos = ({ todos, toggleCompleted, removeTodo }: TodosProps) => {
   return (
     <>
       <section>
         <ul>
           {todos.map((todo) => (
-            <TodoView key={todo.id} todo={todo} toggleCompleted={toggleCompleted} />
+            <TodoView key={todo.id} todo={todo} toggleCompleted={toggleCompleted} removeTodo={removeTodo} />
           ))}
         </ul>
       </section>
