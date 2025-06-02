@@ -15,6 +15,7 @@ export const TodoView = ({ todo, toggleCompleted, removeTodo }: TodoViewProps) =
       <li key={todo.id}>
         <div>
           <h3>{todo.task}</h3>
+          <p>{todo.priority}</p>
           <p>{todo.description}</p>
           <p>{todo.completed ? "Completed" : "Not completed"}</p>
           <div>
