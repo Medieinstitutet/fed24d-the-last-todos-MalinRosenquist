@@ -3,8 +3,8 @@ export class Todo {
   task: string;
   description: string;
   completed: boolean;
-  constructor(id: number, task: string, description: string, completed: boolean) {
-    this.id = id;
+  constructor(task: string, description: string, completed: boolean) {
+    this.id = Date.now();
     this.task = task;
     this.description = description;
     this.completed = completed;
