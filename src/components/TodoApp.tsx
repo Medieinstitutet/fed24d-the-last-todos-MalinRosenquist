@@ -19,11 +19,15 @@ export const TodoApp = () => {
     setTodos([...todos, t]);
   };
 
+  const toggleCompleted = (id: number) => {
+    setTodos(todos.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t)));
+  };
+
   console.log(todos);
   return (
     <>
       <AddTodo addTodo={addTodo} />
-      <Todos todos={todos} />
+      <Todos todos={todos} toggleCompleted={toggleCompleted} />
     </>
   );
 };
