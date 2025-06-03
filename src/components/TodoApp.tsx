@@ -8,11 +8,11 @@ import { Todos } from "./Todos";
 
 export const TodoApp = () => {
   const defaultTodos = [
-    new Todo("Plantera tomater", "High", "Sätt tomatplantor i växthuset", false),
-    new Todo("Vattna blommor", "High", "Vattna blomrabatten på framsidan", true),
-    new Todo("Rensa ogräs", "Low", "Rensa ogräs mellan odlingslådorna", false),
-    new Todo("Gödsla grönsakslandet", "High", "Använd kompostjord och kogödsel", false),
-    new Todo("Beskär äppelträdet", "Medium", "Ta bort döda grenar och forma kronan", true),
+    new Todo("Plant tomatoes", "High", "Plant tomato seedlings in the greenhouse", false),
+    new Todo("Water flowers", "High", "Water the flower bed at the front", true),
+    new Todo("Weed the garden", "Low", "Remove weeds between the planting boxes", false),
+    new Todo("Fertilize vegetable patch", "High", "Use compost and cow manure", false),
+    new Todo("Prune the apple tree", "Medium", "Remove dead branches and shape the crown", true),
   ];
 
   const savedTodos = localStorage.getItem("todos");
