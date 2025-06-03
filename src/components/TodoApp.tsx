@@ -19,6 +19,8 @@ export const TodoApp = () => {
 
   const [todos, setTodos] = useState<Todo[]>(savedTodos ? JSON.parse(savedTodos) : defaultTodos);
 
+  const [sortOption, setSortOption] = useState<string>("default");
+
   const addTodo = (t: Todo) => {
     setTodos([...todos, t]);
   };
@@ -31,13 +33,28 @@ export const TodoApp = () => {
     setTodos(todos.filter((t) => t.id !== id));
   };
 
+  // Sorting
+  const sortedTodos = [...todos].sort((a, b) => {
+    if (sortOption === "completed") {
+      return a.completed === b.completed ? 0 : a.completed ? -1 : 1;
+    }
+    if (sortOption === "priority") {
+      const order: { [key: string]: number } = { High: 1, Medium: 2, Low: 3 };
+      return order[a.priority] - order[b.priority];
+    }
+    if (sortOption === "task") {
+      return a.task.localeCompare(b.task);
+    }
+    return 0;
+  });
+
   localStorage.setItem("todos", JSON.stringify(todos));
   console.log(todos);
 
   return (
     <>
       <AddTodo addTodo={addTodo} />
-      <Todos todos={todos} toggleCompleted={toggleCompleted} removeTodo={removeTodo} />
+      <Todos todos={sortedTodos} toggleCompleted={toggleCompleted} removeTodo={removeTodo} sortOption={sortOption} setSortOption={setSortOption} />
     </>
   );
 };
