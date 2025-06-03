@@ -22,7 +22,7 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
     }
 
     if (e.target.id === "priority") {
-      // Set prioritystatys to task
+      // Set priority to task
       setTodo({ ...todo, [e.target.id]: e.target.value });
     }
   };
@@ -59,7 +59,7 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
         <label htmlFor="">Prority</label>
         <select id="priority" onChange={handleChange} className="border px-2 py-1 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-200">
           <option value="low">Low</option>
-          <option value="medium">Middle</option>
+          <option value="medium">Medium</option>
           <option value="high">High</option>
         </select>
 
