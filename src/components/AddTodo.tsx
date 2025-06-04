@@ -1,5 +1,5 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { Todo } from "../models/Todo";
+import { Todo, type Priority } from "../models/Todo";
 
 //---------CHILD----------//
 
@@ -11,7 +11,7 @@ type AddTodoProps = {
 // parent-provided addTodo function med submiting the form.
 export const AddTodo = ({ addTodo }: AddTodoProps) => {
   // Creates a new Todo object with default empty values
-  const [todo, setTodo] = useState<Todo>(new Todo("", "", "", false));
+  const [todo, setTodo] = useState<Todo>(new Todo("", "low", "", false));
 
   // Handles input changes for both text fields and checkbox.
   // Updates the corresponding property in the todo state.
@@ -23,7 +23,7 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
 
     if (e.target.id === "priority") {
       // Set priority to task
-      setTodo({ ...todo, [e.target.id]: e.target.value });
+      setTodo({ ...todo, priority: e.target.value as Priority });
     }
   };
 
@@ -38,11 +38,11 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
   return (
     <>
       <form className="grid grid-cols-2" onSubmit={handleSubmit}>
-        <label htmlFor="">Task</label>
+        <label htmlFor="title">Title</label>
         <input
           type="text"
-          id="task"
-          value={todo.task}
+          id="title"
+          value={todo.title}
           onChange={handleChange}
           className="border px-2 py-1 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-200"
         />

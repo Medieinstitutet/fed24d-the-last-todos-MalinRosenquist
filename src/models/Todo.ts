@@ -1,13 +1,16 @@
+export type Priority = "high" | "medium" | "low";
+
 export class Todo {
   id: number;
-  task: string;
-  priority: string;
+  title: string;
+  priority: Priority;
   description: string;
   completed: boolean;
-  constructor(task: string, priority: string, description: string, completed: boolean) {
+
+  constructor(title: string, priority: Priority, description: string, completed: boolean) {
     this.id = Date.now() + Math.floor(Math.random() * 100);
     this.priority = priority;
-    this.task = task;
+    this.title = title;
     this.description = description;
     this.completed = completed;
   }
