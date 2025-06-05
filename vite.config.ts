@@ -4,5 +4,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/fed24d-the-last-todos-MalinRosenquist/",
   plugins: [react(), tailwindcss()],
 });

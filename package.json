@@ -1,6 +1,7 @@
 {
   "name": "the-last-todos-template",
   "private": true,
+  "homepage": "https://github.com/Medieinstitutet/fed24d-the-last-todos-MalinRosenquist",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
