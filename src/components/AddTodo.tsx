@@ -36,7 +36,7 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
   return (
     <>
       <form className="bg-white rounded-2xl border-2 border-[#38578A] shadow-xl p-4 hover:outline-1 transition" onSubmit={handleSubmit}>
-        <h2 className="text-xl text-center">Add new todo</h2>
+        <h2 className="text-xl text-center font-[Happy_Monkey,_sans-serif] font-semibold">Add new todo</h2>
         <div className="flex flex-col space-y-4">
           {/* Title */}
           <div className="flex flex-col text-left">

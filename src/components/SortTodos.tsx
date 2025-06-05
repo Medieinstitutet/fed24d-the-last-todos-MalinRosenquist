@@ -17,7 +17,7 @@ export const SortTodos = ({ sortOption, setSortOption }: SortTodosProps) => {
         <label htmlFor="sort" className="mr-2">
           Sort by:
         </label>
-        <select id="sort" onChange={handleChange} value={sortOption} className="border-2 border-gray-300 rounded-md">
+        <select id="sort" onChange={handleChange} value={sortOption} className="border-2  bg-blue-50 border-gray-300 rounded-md">
           <option value="default">Default</option>
           <option value="notCompleted">Status: Not done - Completed</option>
           <option value="completed">Status: Completed - Not done</option>

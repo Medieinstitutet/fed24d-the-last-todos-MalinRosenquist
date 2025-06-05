@@ -65,11 +65,12 @@ export const TodoApp = () => {
   localStorage.setItem("todos", JSON.stringify(todos));
 
   return (
-    <div className="max-w-[1280px] mx-auto">
-      <div className="flex justify-center md:justify-end">
+    <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8">
+      <div className="flex justify-center md:justify-end my-4 md:my-6">
         <SortTodos sortOption={sortOption} setSortOption={setSortOption} />
       </div>
-      <section className="grid grid-cols-1 md:grid-cols-2 min-h-screen mt-6 gap-10">
+
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
         <div>
           <AddTodo addTodo={addTodo} />
         </div>

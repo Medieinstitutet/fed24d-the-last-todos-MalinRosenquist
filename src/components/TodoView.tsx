@@ -22,7 +22,8 @@ export const TodoView = ({ todo, toggleCompleted, removeTodo }: TodoViewProps) =
           className={`border-2 rounded-l-4xl p-4 shadow-lg flex flex-col items-start space-y-2 hover:scale-105 transition, duration-400 
             ${todo.completed ? "border-green-600 bg-[#8CF298]/30" : "border-gray-400 bg-white"}`}
         >
-          <h3 className="text-xl font-semibold">{todo.title}</h3>
+          {/* Title */}
+          <h3 className="text-xl font-semibold font-[Happy_Monkey,_sans-serif] tracking-wider">{todo.title}</h3>
 
           {/* Description */}
           <div>
@@ -39,7 +40,7 @@ export const TodoView = ({ todo, toggleCompleted, removeTodo }: TodoViewProps) =
           {/* Status */}
           <div className="flex">
             <span className="mr-2">Status:</span>
-            <p className={`${todo.completed ? "font-semibold" : "italic"}`}>{todo.completed ? "Completed" : "Not completed"}</p>
+            <p className={`${todo.completed ? "font-semibold text-green-900" : "italic"}`}>{todo.completed ? "Completed ✔" : "Not completed"}</p>
           </div>
 
           {/* Buttons */}
