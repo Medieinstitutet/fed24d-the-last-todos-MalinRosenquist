@@ -61,8 +61,17 @@ export const TodoApp = () => {
 
   return (
     <>
-      <AddTodo addTodo={addTodo} />
-      <Todos todos={sortedTodos} toggleCompleted={toggleCompleted} removeTodo={removeTodo} sortOption={sortOption} setSortOption={setSortOption} />
+      <div className="flex justify-center md:justify-end">
+        <SortTodos sortOption={sortOption} setSortOption={setSortOption} />
+      </div>
+      <section className="grid grid-cols-1 md:grid-cols-2 min-h-screen mt-10 gap-10">
+        <div>
+          <AddTodo addTodo={addTodo} />
+        </div>
+        <div>
+          <Todos todos={sortedTodos} toggleCompleted={toggleCompleted} removeTodo={removeTodo} />
+        </div>
+      </section>
     </>
   );
 };
