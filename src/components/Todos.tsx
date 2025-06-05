@@ -1,6 +1,3 @@
-//---------CHILD----------//
-// Displaying all todos
-
 import type { Todo } from "../models/Todo";
 import { TodoView } from "./TodoView";
 
@@ -10,6 +7,7 @@ type TodosProps = {
   removeTodo: (id: number) => void;
 };
 
+//-- Displaying all todos --//
 export const Todos = ({ todos, toggleCompleted, removeTodo }: TodosProps) => {
   return (
     <>

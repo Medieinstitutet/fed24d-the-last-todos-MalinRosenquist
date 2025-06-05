@@ -4,10 +4,8 @@ import { AddTodo } from "./AddTodo";
 import { Todos } from "./Todos";
 import { SortTodos } from "./SortTodos";
 
-//---------PARENT----------//
-// Holds the state
-
 export const TodoApp = () => {
+  // Default todo list used if no saved todos are found in localStorage
   const defaultTodos = [
     new Todo("Plant tomatoes", "high", "Plant tomato seedlings in the greenhouse", false),
     new Todo("Water flowers", "high", "Water the flower bed at the front", true),
@@ -16,25 +14,31 @@ export const TodoApp = () => {
     new Todo("Prune the apple tree", "medium", "Remove dead branches and shape the crown", true),
   ];
 
+  // Retrieve saved todos from localStorage if any exist
   const savedTodos = localStorage.getItem("todos");
 
+  // State to hold all todos, initialized with savedTodos or defaultTodos
   const [todos, setTodos] = useState<Todo[]>(savedTodos ? JSON.parse(savedTodos) : defaultTodos);
 
+  // State to track the currently selected sorting option
   const [sortOption, setSortOption] = useState<string>("default");
 
+  // Adds a new todo at the top of the list
   const addTodo = (t: Todo) => {
     setTodos([t, ...todos]);
   };
 
+  // Toggles the completed status of a todo by id
   const toggleCompleted = (id: number) => {
     setTodos(todos.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t)));
   };
 
+  // Removes a todo by id
   const removeTodo = (id: number) => {
     setTodos(todos.filter((t) => t.id !== id));
   };
 
-  // Sorting
+  // Sorts todos based on the selected sortOption
   const sortedTodos = [...todos].sort((a, b) => {
     if (sortOption === "completed") {
       return a.completed === b.completed ? 0 : a.completed ? -1 : 1;
@@ -53,9 +57,11 @@ export const TodoApp = () => {
     if (sortOption === "title") {
       return a.title.localeCompare(b.title);
     }
+    // Default: no sorting (maintain current order)
     return 0;
   });
 
+  // Save todos to localStorage on every render (state update)
   localStorage.setItem("todos", JSON.stringify(todos));
 
   return (

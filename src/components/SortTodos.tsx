@@ -6,6 +6,7 @@ type SortTodosProps = {
 };
 
 export const SortTodos = ({ sortOption, setSortOption }: SortTodosProps) => {
+  // Handles changes on the sorting dropdown
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setSortOption(e.target.value);
   };

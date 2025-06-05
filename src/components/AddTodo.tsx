@@ -2,8 +2,6 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import { Todo, type Priority } from "../models/Todo";
 import { Button } from "./Button";
 
-//---------CHILD----------//
-
 type AddTodoProps = {
   addTodo: (t: Todo) => void;
 };
@@ -40,6 +38,7 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
       <form className="bg-white rounded-2xl border-2 border-[#38578A] shadow-xl p-4 hover:outline-1 transition" onSubmit={handleSubmit}>
         <h2 className="text-xl text-center">Add new todo</h2>
         <div className="flex flex-col space-y-4">
+          {/* Title */}
           <div className="flex flex-col text-left">
             <label htmlFor="title" className="font-semibold">
               Title
@@ -54,6 +53,7 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
             />
           </div>
 
+          {/* Description */}
           <div className="flex flex-col text-left">
             <label htmlFor="description" className="font-semibold">
               Description
@@ -68,6 +68,7 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
             />
           </div>
 
+          {/* Priority */}
           <div className="flex flex-col text-left">
             <label htmlFor="priority" className="font-semibold">
               Priority
@@ -82,6 +83,8 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
               <option value="high">High</option>
             </select>
           </div>
+
+          {/* Submit button */}
           <Button className="btn bg-[#38578A] hover:bg-[#49699e] mt-3 hover:border-[38578A]">Add task</Button>
         </div>
       </form>
