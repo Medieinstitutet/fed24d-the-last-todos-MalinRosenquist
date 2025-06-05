@@ -23,7 +23,7 @@ export const TodoApp = () => {
   const [sortOption, setSortOption] = useState<string>("default");
 
   const addTodo = (t: Todo) => {
-    setTodos([...todos, t]);
+    setTodos([t, ...todos]);
   };
 
   const toggleCompleted = (id: number) => {
