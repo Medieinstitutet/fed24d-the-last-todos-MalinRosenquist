@@ -11,32 +11,34 @@ type TodoViewProps = {
 
 export const TodoView = ({ todo, toggleCompleted, removeTodo }: TodoViewProps) => {
   const priorityClasses = {
-    high: "text-red-600 font-bold",
-    medium: "text-yellow-500 font-semibold",
-    low: "text-green-400 font-normal",
-  };
-
-  const borderClasses = {
-    high: "border-red-500",
-    medium: "border-yellow-500",
-    low: "border-green-500",
+    high: "text-red-600 font-extrabold",
+    medium: "text-orange-500 font-bold",
+    low: "text-yellow-700 font-semibold",
   };
 
   console.log("Priority value:", todo.priority);
   return (
     <>
       <li key={todo.id}>
-        <div>
-          <h3>{todo.task}</h3>
-          <p>{todo.priority}</p>
-        <div className={`border-2 rounded-md m-10 p-1 shadow-xl flex flex-col items-start gap-y-1 ${borderClasses[todo.priority]}`}>
+        <div
+          className={`border-2 rounded-l-4xl p-3 shadow-xl flex flex-col items-start space-y-2 hover:scale-105 transition, duration-400 
+            ${todo.completed ? "border-green-600 bg-[#8CF298]/30" : "border-gray-400"}`}
+        >
           <h3 className="text-xl">{todo.title}</h3>
-          <p className={priorityClasses[todo.priority]}>{todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1)}</p>
-          <p>{todo.description}</p>
-          <p>{todo.completed ? "Completed" : "Not completed"}</p>
-          <div>
-            <button onClick={() => toggleCompleted(todo.id)}>{todo.completed ? "Undo" : "Done"}</button>
-            <button onClick={() => removeTodo(todo.id)}>Delete</button>
+          <div className="flex">
+            <p className="mr-2">Priority:</p>
+            <span className={`${priorityClasses[todo.priority]}`}>{todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1)}</span>
+          </div>
+          <p className="text-left">{todo.description}</p>
+          <p className={`${todo.completed ? "font-semibold" : "italic"}`}>{todo.completed ? "Completed" : "Not completed"}</p>
+
+          <div className="w-full flex justify-center gap-x-3 p-3">
+            <button className="btn bg-[#14612E] hover:bg-[#197638] transition" onClick={() => toggleCompleted(todo.id)}>
+              {todo.completed ? "Undo" : "Done"}
+            </button>
+            <button className="btn bg-[#9E3515] hover:bg-[#BE3F19] transition" onClick={() => removeTodo(todo.id)}>
+              Delete
+            </button>
           </div>
         </div>
       </li>

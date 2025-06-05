@@ -14,7 +14,7 @@ export const Todos = ({ todos, toggleCompleted, removeTodo }: TodosProps) => {
   return (
     <>
       <section>
-        <ul>
+        <ul className="space-y-8">
           {todos.map((todo) => (
             <TodoView key={todo.id} todo={todo} toggleCompleted={toggleCompleted} removeTodo={removeTodo} />
           ))}

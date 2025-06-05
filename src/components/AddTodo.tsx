@@ -37,33 +37,48 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
 
   return (
     <>
-      <form className="grid grid-cols-2" onSubmit={handleSubmit}>
-        <label htmlFor="title">Title</label>
-        <input
-          type="text"
-          id="title"
-          value={todo.title}
-          onChange={handleChange}
-          className="border px-2 py-1 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-200"
-        />
+      <form className="rounded-2xl border-2 border-[#38578A] shadow-xl p-3 hover:scale-103 transition, duration-400" onSubmit={handleSubmit}>
+        <h2 className="text-xl">Add new todo</h2>
+        <div className="flex flex-col space-y-4">
+          <div className="flex flex-col text-left">
+            <label htmlFor="title">Title</label>
+            <input
+              type="text"
+              id="title"
+              value={todo.title}
+              onChange={handleChange}
+              className="border px-2 py-1 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-200"
+              required
+            />
+          </div>
 
-        <label htmlFor="">Description</label>
-        <input
-          type="text"
-          id="description"
-          value={todo.description}
-          onChange={handleChange}
-          className="border px-2 py-1 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-200"
-        />
+          <div className="flex flex-col text-left">
+            <label htmlFor="description">Description</label>
+            <input
+              type="text"
+              id="description"
+              value={todo.description}
+              onChange={handleChange}
+              className="border px-2 py-1 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-200"
+              required
+            />
+          </div>
 
-        <label htmlFor="">Prority</label>
-        <select id="priority" onChange={handleChange} className="border px-2 py-1 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-200">
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
-        </select>
+          <div className="flex flex-col text-left">
+            <label htmlFor="priority">Prority</label>
+            <select
+              id="priority"
+              onChange={handleChange}
+              className="border px-2 py-1 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-200"
+            >
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
 
-        <button className="col-start-2">Add task</button>
+          <button className="btn bg-[#38578A]">Add task</button>
+        </div>
       </form>
     </>
   );
