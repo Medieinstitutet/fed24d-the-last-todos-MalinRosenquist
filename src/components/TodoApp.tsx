@@ -57,14 +57,13 @@ export const TodoApp = () => {
   });
 
   localStorage.setItem("todos", JSON.stringify(todos));
-  console.log(todos);
 
   return (
-    <>
+    <div className="max-w-[1280px] mx-auto">
       <div className="flex justify-center md:justify-end">
         <SortTodos sortOption={sortOption} setSortOption={setSortOption} />
       </div>
-      <section className="grid grid-cols-1 md:grid-cols-2 min-h-screen mt-10 gap-10">
+      <section className="grid grid-cols-1 md:grid-cols-2 min-h-screen mt-6 gap-10">
         <div>
           <AddTodo addTodo={addTodo} />
         </div>
@@ -72,6 +71,6 @@ export const TodoApp = () => {
           <Todos todos={sortedTodos} toggleCompleted={toggleCompleted} removeTodo={removeTodo} />
         </div>
       </section>
-    </>
+    </div>
   );
 };
