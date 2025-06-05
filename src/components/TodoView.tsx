@@ -1,4 +1,5 @@
 import type { Todo } from "../models/Todo";
+import { Button } from "./Button";
 
 //---------GRANDCHILD----------//
 // Single todo
@@ -33,12 +34,12 @@ export const TodoView = ({ todo, toggleCompleted, removeTodo }: TodoViewProps) =
           <p className={`${todo.completed ? "font-semibold" : "italic"}`}>{todo.completed ? "Completed" : "Not completed"}</p>
 
           <div className="w-full flex justify-center gap-x-3 p-3">
-            <button className="btn bg-[#14612E] hover:bg-[#197638] transition" onClick={() => toggleCompleted(todo.id)}>
+            <Button className="btn bg-[#14612E] hover:bg-[#197638] transition" onClick={() => toggleCompleted(todo.id)}>
               {todo.completed ? "Undo" : "Done"}
-            </button>
-            <button className="btn bg-[#9E3515] hover:bg-[#BE3F19] transition" onClick={() => removeTodo(todo.id)}>
+            </Button>
+            <Button className="btn bg-[#9E3515] hover:bg-[#BE3F19] transition" onClick={() => removeTodo(todo.id)}>
               Delete
-            </button>
+            </Button>
           </div>
         </div>
       </li>
