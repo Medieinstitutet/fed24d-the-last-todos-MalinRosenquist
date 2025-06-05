@@ -36,46 +36,52 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
 
   return (
     <>
-      <form className="rounded-2xl border-2 border-[#38578A] shadow-xl p-3 hover:scale-105 transition, duration-400" onSubmit={handleSubmit}>
-        <h2 className="text-xl">Add new todo</h2>
+      <form className="bg-white rounded-2xl border-2 border-[#38578A] shadow-xl p-4 hover:outline-1 transition" onSubmit={handleSubmit}>
+        <h2 className="text-xl text-center">Add new todo</h2>
         <div className="flex flex-col space-y-4">
           <div className="flex flex-col text-left">
-            <label htmlFor="title">Title</label>
+            <label htmlFor="title" className="font-semibold">
+              Title
+            </label>
             <input
               type="text"
               id="title"
               value={todo.title}
               onChange={handleChange}
-              className="border px-2 py-1 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-200"
+              className="border px-2 py-1 bg-blue-50 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-200"
               required
             />
           </div>
 
           <div className="flex flex-col text-left">
-            <label htmlFor="description">Description</label>
+            <label htmlFor="description" className="font-semibold">
+              Description
+            </label>
             <input
               type="text"
               id="description"
               value={todo.description}
               onChange={handleChange}
-              className="border px-2 py-1 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-200"
+              className="border px-2 py-1  bg-blue-50 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-200"
               required
             />
           </div>
 
           <div className="flex flex-col text-left">
-            <label htmlFor="priority">Prority</label>
+            <label htmlFor="priority" className="font-semibold">
+              Priority
+            </label>
             <select
               id="priority"
               onChange={handleChange}
-              className="border px-2 py-1 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-200"
+              className="border px-2 py-1  bg-blue-50 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-200"
             >
               <option value="low">Low</option>
               <option value="medium">Medium</option>
               <option value="high">High</option>
             </select>
           </div>
-          <Button className="btn bg-[#38578A] hover:bg-[#2f4d7d] hover:border-[38578A]">Add task</Button>
+          <Button className="btn bg-[#38578A] hover:bg-[#49699e] mt-3 hover:border-[38578A]">Add task</Button>
         </div>
       </form>
     </>
