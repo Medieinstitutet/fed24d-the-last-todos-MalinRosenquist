@@ -22,7 +22,7 @@ export const SortTodos = ({ sortOption, setSortOption }: SortTodosProps) => {
           <option value="completed">Status: Completed - Not done</option>
           <option value="priorityLow">Priority: Low - High</option>
           <option value="priorityHigh">Priority: High - Low</option>
-          <option value="title">Alpabetical</option>
+          <option value="title">Title: A-Z</option>
         </select>
       </div>
     </>
