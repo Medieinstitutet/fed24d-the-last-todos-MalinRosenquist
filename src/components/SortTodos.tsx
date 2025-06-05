@@ -12,13 +12,19 @@ export const SortTodos = ({ sortOption, setSortOption }: SortTodosProps) => {
 
   return (
     <>
-      <label htmlFor="sort">Sort by:</label>
-      <select id="sort" onChange={handleChange} value={sortOption}>
-        <option value="default">Default</option>
-        <option value="completed">Status</option>
-        <option value="priority">Priority</option>
-        <option value="task">Alpabetical</option>
-      </select>
+      <div className="">
+        <label htmlFor="sort" className="mr-2">
+          Sort by:
+        </label>
+        <select id="sort" onChange={handleChange} value={sortOption} className="border-2 border-gray-300 rounded-md">
+          <option value="default">Default</option>
+          <option value="notCompleted">Status: Not done - Completed</option>
+          <option value="completed">Status: Completed - Not done</option>
+          <option value="priorityLow">Priority: Low - High</option>
+          <option value="priorityHigh">Priority: High - Low</option>
+          <option value="title">Alpabetical</option>
+        </select>
+      </div>
     </>
   );
 };

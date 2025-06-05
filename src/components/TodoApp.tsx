@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Todo } from "../models/Todo";
 import { AddTodo } from "./AddTodo";
 import { Todos } from "./Todos";
+import { SortTodos } from "./SortTodos";
 
 //---------PARENT----------//
 // Holds the state
@@ -38,11 +39,18 @@ export const TodoApp = () => {
     if (sortOption === "completed") {
       return a.completed === b.completed ? 0 : a.completed ? -1 : 1;
     }
-    if (sortOption === "priority") {
+    if (sortOption === "notCompleted") {
+      return b.completed === a.completed ? 0 : b.completed ? -1 : 1;
+    }
+    if (sortOption === "priorityHigh") {
       const order: { [key: string]: number } = { high: 1, medium: 2, low: 3 };
       return order[a.priority] - order[b.priority];
     }
-    if (sortOption === "task") {
+    if (sortOption === "priorityLow") {
+      const order: { [key: string]: number } = { high: 1, medium: 2, low: 3 };
+      return order[b.priority] - order[a.priority];
+    }
+    if (sortOption === "title") {
       return a.title.localeCompare(b.title);
     }
     return 0;
