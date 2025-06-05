@@ -32,6 +32,7 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addTodo(todo);
+    setTodo(new Todo("", "low", "", false));
   };
 
   return (
