@@ -10,9 +10,9 @@ type TodoViewProps = {
 export const TodoView = ({ todo, toggleCompleted, removeTodo }: TodoViewProps) => {
   // Set classname based on todo priority
   const priorityClasses = {
-    high: "text-red-600 font-extrabold",
-    medium: "text-orange-500 font-bold",
-    low: "text-blue-700 font-semibold",
+    high: "bg-[#660000] font-extrabold",
+    medium: "bg-[#943B00] font-bold",
+    low: "bg-[#003366] font-semibold",
   };
 
   return (
@@ -20,7 +20,7 @@ export const TodoView = ({ todo, toggleCompleted, removeTodo }: TodoViewProps) =
       <li key={todo.id}>
         <div
           className={`border-2 rounded-l-4xl p-4 shadow-lg flex flex-col items-start space-y-2 hover:scale-105 transition, duration-400 
-            ${todo.completed ? "border-green-600 bg-[#8CF298]/30" : "border-gray-400 bg-white"}`}
+            ${todo.completed ? "border-[#006625] bg-[#8CF298]/30" : "border-[#4F5564] bg-white"}`}
         >
           {/* Title */}
           <h3 className="text-xl font-semibold font-[Happy_Monkey,_sans-serif] tracking-wider">{todo.title}</h3>
@@ -32,14 +32,16 @@ export const TodoView = ({ todo, toggleCompleted, removeTodo }: TodoViewProps) =
           </div>
 
           {/* Priority */}
-          <div className="flex">
-            <span className="mr-2">Priority:</span>
-            <span className={`${priorityClasses[todo.priority]}`}>{todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1)}</span>
+          <div className="flex items-center">
+            <span className="mr-2 font-medium">Priority:</span>
+            <span className={`text-white rounded-2xl px-4 py-1 ${priorityClasses[todo.priority]}`}>
+              {todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1)}
+            </span>
           </div>
 
           {/* Status */}
           <div className="flex">
-            <span className="mr-2">Status:</span>
+            <span className="mr-2 font-medium">Status:</span>
             <p className={`${todo.completed ? "font-semibold text-green-900" : "italic"}`}>{todo.completed ? "Completed ✔" : "Not completed"}</p>
           </div>
 
