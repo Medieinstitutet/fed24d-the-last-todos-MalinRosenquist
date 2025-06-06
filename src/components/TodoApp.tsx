@@ -65,7 +65,7 @@ export const TodoApp = () => {
   localStorage.setItem("todos", JSON.stringify(todos));
 
   return (
-    <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8">
+    <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 pb-8 md:pb-12">
       <div className="flex justify-center md:justify-end my-4 md:my-6">
         <SortTodos sortOption={sortOption} setSortOption={setSortOption} />
       </div>
