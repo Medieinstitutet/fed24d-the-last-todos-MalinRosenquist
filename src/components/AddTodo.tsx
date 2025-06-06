@@ -14,9 +14,14 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
 
   // Handles input changes for both text fields and checkbox.
   // Updates the corresponding property in the todo state.
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     if (e.target.type === "text") {
-      // Update task or description based on input id
+      // Update task input id
+      setTodo({ ...todo, [e.target.id]: e.target.value });
+    }
+
+    if (e.target.id === "description") {
+      // Update description based on input id
       setTodo({ ...todo, [e.target.id]: e.target.value });
     }
 
@@ -58,8 +63,7 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
             <label htmlFor="description" className="font-semibold">
               Description
             </label>
-            <input
-              type="text"
+            <textarea
               id="description"
               value={todo.description}
               onChange={handleChange}
