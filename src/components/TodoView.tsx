@@ -19,7 +19,7 @@ export const TodoView = ({ todo, toggleCompleted, removeTodo }: TodoViewProps) =
     <>
       <li key={todo.id}>
         <div
-          className={`border-2 rounded-l-4xl p-4 shadow-lg flex flex-col items-start space-y-2 hover:scale-105 transition, duration-400 
+          className={`border-2 border-t-6 rounded-br-4xl rounded-bl-4xl p-4 shadow-lg flex flex-col items-start space-y-2 hover:scale-105 transition, duration-400 
             ${todo.completed ? "border-[#006625] bg-[#8CF298]/30" : "border-[#4F5564] bg-white"}`}
         >
           {/* Title */}
@@ -27,7 +27,7 @@ export const TodoView = ({ todo, toggleCompleted, removeTodo }: TodoViewProps) =
 
           {/* Description */}
           <div>
-            <span className="mr-2">Task:</span>
+            <span className="mr-2 font-medium">Task description:</span>
             <p className="text-left">{todo.description}</p>
           </div>
 
